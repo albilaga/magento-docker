@@ -1,0 +1,25 @@
+name: ci
+on:
+  push:
+    branches:
+      - 'main'
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Set up docker buildx
+        uses: docker/setup-build-action@v2
+      -
+        name: Login to dockerhub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN}}
+      -
+        name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: "{{defaultContext}}:php"
+          push: true
+          tags: albilaga/magento-php:7.3-fpm-0

@@ -1,5 +1,5 @@
 FROM php:7.3-fpm-buster
-LABEL org.opencontainers.image.authors="rizentium@gmail.com"
+LABEL org.opencontainers.image.authors="albilaga.lp@gmail.com"
 
 ARG APP_ID=1000
 RUN groupadd -g "$APP_ID" app \
