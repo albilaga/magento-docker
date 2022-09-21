@@ -40,6 +40,7 @@ RUN pecl channel-update pecl.php.net && pecl install \
     redis \
     ssh2-1.2 \
     xdebug \
+    grpc \
   && pecl clear-cache \
   && rm -rf /tmp/pear
 
